@@ -1,3 +1,7 @@
+# sklearn.svm: Support Vector Machines
+# svm.SVR(*[, kernel, degree, gamma, coef0, …])
+# Epsilon-Support Vector Regression
+
 from __future__ import print_function, division
 from builtins import range
 

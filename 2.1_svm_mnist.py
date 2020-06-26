@@ -1,3 +1,7 @@
+# sklearn.svm: Support Vector Machines
+# svm.SVC(*[, C, kernel, degree, gamma, …])
+# C-Support Vector Classification.
+
 from __future__ import print_function, division
 from builtins import range
 

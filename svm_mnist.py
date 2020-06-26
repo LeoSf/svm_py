@@ -8,7 +8,8 @@ from datetime import datetime
 # get the data: https://www.kaggle.com/c/digit-recognizer
 Xtrain, Ytrain, Xtest, Ytest = getKaggleMNIST()
 
-model = SVC()
+#model = SVC()
+model = SVC(C=5., gamma=.05)
 
 t0 = datetime.now()
 model.fit(Xtrain, Ytrain)

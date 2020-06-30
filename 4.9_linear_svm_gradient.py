@@ -18,20 +18,30 @@ class LinearSVM:
     def __init__(self, C=1.0):
         """ Init method of the class
 
-        :param C:  margin penalization, defaults to 1.0
+        :param C:  relative strength of the misclassification penalty, defaults to 1.0
         :type C: float, optional
         """
         self.C = C
 
     def _objective(self, margins):
-        """ Objective funtion to minimize
+        """ Minimization objective function
 
         :param margins: margin
-        :type margins: floats
-        :return: none
-        :rtype: none
+        :type margins: list[floats]
+        :return: loss
+        :rtype: float
         """
         return 0.5 * self.w.dot(self.w) + self.C * np.maximum(0, 1 - margins).sum()
+
+    def _decision_function(self, X):
+        """ Linear equation for the svm
+
+        :param X: input data
+        :type X: numpy matrix
+        :return: linear function value
+        :rtype: float
+        """
+        return X.dot(self.w) + self.b
 
     def fit(self, X, Y, lr=1e-5, n_iters=400):
         """ Function to fit the model
@@ -60,7 +70,7 @@ class LinearSVM:
             idx = np.where(margins < 1)[0]                  # datapoints wich violates the svm margin line
             grad_w = self.w - self.C * Y[idx].dot(X[idx])   # gradient for w
             self.w -= lr * grad_w
-            grad_b = -self.C * Y[idx].sum()
+            grad_b = -self.C * Y[idx].sum()                 # gradient for b
             self.b -= lr * grad_b
 
         self.support_ = np.where((Y * self._decision_function(X)) <= 1)[0]  # save datapoints wich lays or violates the margin
@@ -77,16 +87,6 @@ class LinearSVM:
         plt.plot(losses)
         plt.title("loss per iteration")
         plt.show()
-
-    def _decision_function(self, X):
-        """ Linear equation for the svm
-
-        :param X: input data
-        :type X: numpy matrix
-        :return: linear function value
-        :rtype: float
-        """
-        return X.dot(self.w) + self.b
 
     def predict(self, X):
         """ predict value

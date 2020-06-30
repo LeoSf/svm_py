@@ -15,7 +15,8 @@ from sklearn.svm import SVC
 # load the data
 data = load_breast_cancer()
 
-# trying different hyper-parameters using a pipeline
+# -- trying different hyper-parameters using a pipeline
+# C varying the missclassification penalty
 for C in (0.5, 1.0, 5.0, 10.0):
   # Pipeline
   pipeline = Pipeline([('scaler', StandardScaler()), ('svm', SVC(C=C))])

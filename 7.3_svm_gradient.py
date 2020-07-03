@@ -170,22 +170,22 @@ def medical_sigmoid():
 
 
 def xor():
-  X, Y = get_xor()
-  Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
-  kernel = lambda X1, X2: rbf(X1, X2, gamma=5.)
-  return Xtrain, Xtest, Ytrain, Ytest, kernel, 1e-2, 300
+    X, Y = get_xor()
+    Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
+    kernel = lambda X1, X2: rbf(X1, X2, gamma=5.)
+    return Xtrain, Xtest, Ytrain, Ytest, kernel, 1e-2, 300
 
 def donut():
-  X, Y = get_donut()
-  Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
-  kernel = lambda X1, X2: rbf(X1, X2, gamma=5.)
-  return Xtrain, Xtest, Ytrain, Ytest, kernel, 1e-2, 300
+    X, Y = get_donut()
+    Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
+    kernel = lambda X1, X2: rbf(X1, X2, gamma=5.)
+    return Xtrain, Xtest, Ytrain, Ytest, kernel, 1e-2, 300
 
 def spiral():
-  X, Y = get_spiral()
-  Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
-  kernel = lambda X1, X2: rbf(X1, X2, gamma=5.)
-  return Xtrain, Xtest, Ytrain, Ytest, kernel, 1e-2, 300
+    X, Y = get_spiral()
+    Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
+    kernel = lambda X1, X2: rbf(X1, X2, gamma=5.)
+    return Xtrain, Xtest, Ytrain, Ytest, kernel, 1e-2, 300
 
 def clouds():
     X, Y = get_clouds()

@@ -18,6 +18,17 @@ def linear(X1, X2, c=0):
 
 
 def rbf(X1, X2, gamma=None):
+    """ Gaussina kernel
+
+    :param X1: input X1   
+    :type X1: one or multi -dimensional array
+    :param X2: input X2
+    :type X2: one or multi -dimensional array
+    :param gamma: [description], defaults to None
+    :type gamma: [type], optional
+    :return: final kernel vlaue
+    :rtype: float
+    """
     if gamma is None:
         gamma = 1.0 / X1.shape[-1]  # 1 / D
     # gamma = 0.05
@@ -37,6 +48,8 @@ def sigmoid(X1, X2, gamma=0.05, c=1):
 
 
 class KernelSVM:
+    """[summary]
+    """
     def __init__(self, kernel=linear, C=1.0):
         self.C = C
         self.kernel = kernel

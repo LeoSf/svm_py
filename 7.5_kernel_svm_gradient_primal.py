@@ -44,8 +44,20 @@ def rbf(X1, X2, gamma=None):
 
 
 def sigmoid(X1, X2, gamma=0.05, c=1):
-    return np.tanh(gamma * X1.dot(X2.T) + c)
+    """ Sigmoid kernel
 
+    :param X1: input X1   
+    :type X1: one or multi -dimensional array
+    :param X2: input X2
+    :type X2: one or multi -dimensional array
+    :param gamma: gamma parameter as a function of the std deviation, defaults to 0.05
+    :type gamma: float, optional
+    :param c: [description], defaults to 1
+    :type c: int, optional
+    :return: [description]
+    :rtype: [type]
+    """
+    return np.tanh(gamma * X1.dot(X2.T) + c)
 
 class KernelSVM:
     """[summary]
